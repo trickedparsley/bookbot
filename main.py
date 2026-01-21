@@ -1,11 +1,12 @@
-def get_book_text(filepath):
-    with open(filepath) as f:
-        return f.read()
+from stats import * # pyright: ignore[reportMissingImports]
 def main():
-    num_words = 0
-    for word in get_book_text("./books/frankenstein.txt").split():
-        num_words += 1
-    print(f"Found {num_words} total words")
-
+    book = "./books/frankenstein.txt"
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print(get_num_words(book))
+    #print(count_symbols(book))
+    for item in sort_list(count_symbols(book)):
+            print(f"{item["char"]}: {item["num"]}")
+    print("============= END ===============")
     
 main()
